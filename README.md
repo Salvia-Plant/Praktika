@@ -1,6 +1,3 @@
- HEAD
-# Praktika final
-=======
 # Praktika final
 # Мониторинг бездомных животных (YOLOv8 + Flask)
 
