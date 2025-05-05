@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка и анализ видео</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Загрузка и анализ видео</h1>
+        <div class="upload-box">
+            <input type="file" id="video-upload" accept="video/*">
+            <button id="upload-btn">Загрузить и обработать</button>
+        </div>
+        <div class="result-container hidden" id="result-container">
+            <h2>Результат обработки</h2>
+            <video id="result-video" controls></video>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
