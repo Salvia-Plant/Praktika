@@ -1,0 +1,110 @@
+/* Основные стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f9f0;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #2e7d32;
+    color: white;
+    border-radius: 8px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+/* Стили для загрузки файлов */
+.upload-box {
+    background-color: #e8f5e9;
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px dashed #81c784;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#video-upload {
+    display: none;
+}
+
+#upload-btn {
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#upload-btn:hover {
+    background-color: #2e7d32;
+}
+
+/* Стили для результатов */
+.result-container {
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#result-video {
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.stats {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #c8e6c9;
+    border-radius: 4px;
+}
+
+.stats p {
+    margin: 5px 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 15px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 22px;
+    }
+}

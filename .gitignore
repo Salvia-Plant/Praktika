@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+.env
+backend/model/weights/  #исключить веса модели 
+node_modules/
+package-lock.json
