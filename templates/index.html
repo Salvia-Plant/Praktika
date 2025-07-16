@@ -2,21 +2,53 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Загрузка и анализ видео</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Результаты обработки видео</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f9f0;
+            color: #333;
+            padding: 40px;
+        }
+        .results-block {
+            background: #e8f5e9;
+            border-radius: 10px;
+            max-width: 420px;
+            margin: 40px auto;
+            padding: 30px 28px;
+            box-shadow: 0 2px 10px rgba(46, 125, 50, 0.10);
+            font-size: 18px;
+        }
+        .results-block h2 {
+            color: #2e7d32;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .results-block ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .results-block li {
+            margin-bottom: 10px;
+        }
+        .results-block li b {
+            color: #388e3c;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Загрузка и анализ видео</h1>
-        <div class="upload-box">
-            <input type="file" id="video-upload" accept="video/*">
-            <button id="upload-btn">Загрузить и обработать</button>
-        </div>
-        <div class="result-container hidden" id="result-container">
-            <h2>Результат обработки</h2>
-            <video id="result-video" controls></video>
-        </div>
+    <div class="results-block">
+        <h2>Результаты обработки:</h2>
+        <ul>
+            <li><b>Файл:</b> fight.mp4</li>
+            <li><b>Дата анализа:</b> 05.05.2025, 09:21:46</li>
+            <li><b>Среднее число объектов:</b> 2.56</li>
+            <li><b>Минимальное кол-во объектов:</b> 1</li>
+            <li><b>Максимальное кол-во объектов:</b> 4</li>
+            <li><b>Средний процент заполнения пространства:</b> 19.7%</li>
+        </ul>
     </div>
-    <script src="/static/script.js"></script>
 </body>
 </html>
+
