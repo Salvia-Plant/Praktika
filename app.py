@@ -4,7 +4,7 @@ import os
 import uuid
 
 app = Flask(__name__)
-#  Flask – это класс; мы создаём экземпляр (ООП) → объект с dunder‑методом __call__,
+#  Flask – это класс; мы создаём экземпляр → объект с dunder‑методом __call__,
 #  поэтому веб‑сервер может «звать» app(request_environ) как функцию.
 
 UPLOAD_FOLDER = 'uploads' # куда кладём оригинальные ролики
@@ -12,26 +12,24 @@ RESULT_FOLDER = 'results' # куда YOLO сохранит готовые вид
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(RESULT_FOLDER, exist_ok=True)
 
-model = YOLO('yolov8n.pt')  
-#  – считываются веса .pt
-#  – строится вычислительный граф (PyTorch)
-#  – объект реализует __call__/predict, поэтому можно вызвать model(...)
+model = YOLO('yolov8n.pt')  #считываются веса, строится вычислительный граф (PyTorch)
+# объект реализует __call__/predict, поэтому можно вызвать model(...)
 
-@app.route('/') # ← декоратор: регистрирует URL "/" → функцию index
+@app.route('/') # декоратор регистрирует URL "/" → функцию index
 def index():
     return render_template('index.html') # Jinja2 → HTML → Response
 
 @app.route('/upload', methods=['POST'])  # POST, т.к. клиент отправляет файл
 def upload():
-     # — Проверка, что в multipart‑form пришёл файл с ключом "video"
+     #Проверка, что в multipart‑form пришёл файл с ключом "video"
     if 'video' not in request.files: # request.files – ImmutableMultiDict, dunder __getitem__
         return jsonify({'error': 'Нет файла'}), 400
     file = request.files['video']
     if file.filename == '':
         return jsonify({'error': 'Файл не выбран'}), 400
 
-    video_id = str(uuid.uuid4())  # — Генерируем уникальный id ролика (UUID4 → строка), чтобы не столкнуть имена
-    input_path = os.path.join(UPLOAD_FOLDER, f'{video_id}.mp4') # — Формируем путь, куда сохранить оригинал
+    video_id = str(uuid.uuid4())  # Генерируем уникальный id ролика (UUID4 → строка), чтобы не столкнуть имена
+    input_path = os.path.join(UPLOAD_FOLDER, f'{video_id}.mp4') # Формируем путь, куда сохранить оригинал
 
     file.save(input_path)
 
@@ -63,7 +61,7 @@ def upload():
 @app.route('/result/<video_id>/<filename>')  # динамические сегменты URL
 def result(video_id, filename):   
     # send_from_directory → готовый Response с заголовками,
-    #   поддерживает X‑Sendfile для nginx, range‑запросы и т.д.
+    # поддерживает X‑Sendfile для nginx, range‑запросы и т.д.
     return send_from_directory(os.path.join(RESULT_FOLDER, video_id), filename)
 
 
